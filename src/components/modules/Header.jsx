@@ -3,6 +3,7 @@ import { useColorMode } from "@/components/ui/color-mode"
 import { LuMoon, LuSun } from "react-icons/lu"
 
 import { Box, Text, Container } from "@chakra-ui/react"
+import { Link } from "react-router-dom"
 
 const Header = () => {
     const { toggleColorMode, colorMode } = useColorMode()
@@ -11,7 +12,7 @@ const Header = () => {
         <Box as="header" display="flex" alignItems="center" height="16" borderBottomWidth="1px">
             <Container display="flex" alignItems="center" justifyContent="space-between">
                 <Text fontWeight="bold" fontSize="2xl">
-                    بلاگیفای
+                    <Link to="/">بلاگیفای</Link>
                 </Text>
 
                 <Box>
