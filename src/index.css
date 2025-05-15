@@ -1,0 +1,9 @@
+@font-face {
+    font-family: "IranYekanX";
+    src: url("./assets/fonts/IRANYekanXVFaNumVF.woff2") format("woff2");
+}
+
+body {
+    font-family: "IranYekanX";
+    font-weight: 400;
+}

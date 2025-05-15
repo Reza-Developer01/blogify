@@ -1,5 +1,5 @@
 function App() {
-  return <h1>Blogify</h1>;
+  return <h1>بلاگیفای</h1>;
 }
 
 export default App;
