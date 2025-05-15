@@ -1,5 +1,7 @@
+import Header from "./components/modules/Header";
+
 function App() {
-  return <h1>بلاگیفای</h1>;
+  return <Header />;
 }
 
 export default App;
