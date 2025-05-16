@@ -1,12 +1,16 @@
 import Header from "@/components/modules/Header"
-import { Box } from "@chakra-ui/react"
+import { Box, Container } from "@chakra-ui/react"
 
 const MainLayout = ({ children }) => {
     return (
-        <Box as="main">
+        <>
             <Header />
-            {children}
-        </Box>
+            <Box as="main" marginY="10">
+                <Container>
+                    {children}
+                </Container>
+            </Box>
+        </>
     )
 }
 
