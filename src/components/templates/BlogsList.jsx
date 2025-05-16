@@ -2,6 +2,7 @@ import { getBlogsList } from "@/services/blogsList"
 import { Badge, Box, Card, Heading, Spinner, Stack, Text } from "@chakra-ui/react"
 import { useEffect, useState } from "react"
 import { LuCalendar, LuTags, LuUserPen } from "react-icons/lu"
+import SearchAndFilter from "./SearchAndFilter"
 
 const BlogsList = () => {
     const [blogs, setBlogs] = useState([])
@@ -27,6 +28,8 @@ const BlogsList = () => {
     return (
         <Box as="section">
             <Heading fontFamily="IranYekanX" mb="5">لیست مقالات</Heading>
+
+            <SearchAndFilter />
 
             {
                 isLoading ? <Spinner size="md" /> : <Stack direction="row" gap="6" flexWrap="wrap">
