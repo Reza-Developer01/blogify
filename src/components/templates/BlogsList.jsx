@@ -1,12 +1,7 @@
 import { Badge, Box, Card, Heading, Stack, Text } from "@chakra-ui/react"
-import { useEffect } from "react"
 import { LuCalendar, LuTags, LuUserPen } from "react-icons/lu"
 
 const BlogsList = () => {
-    useEffect(() => {
-        
-    }, [])
-
     return (
         <Box as="section">
             <Heading fontFamily="IranYekanX" mb="5">لیست مقالات</Heading>
