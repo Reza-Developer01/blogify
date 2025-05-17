@@ -1,10 +1,7 @@
 import { Input, InputGroup } from "@chakra-ui/react"
-import { useState } from "react"
 import { LuSearch } from "react-icons/lu"
 
-const SearchBox = () => {
-    const [search, setSearch] = useState("")
-
+const SearchBox = ({ search, setSearch }) => {
     return (
         <InputGroup startElement={<LuSearch />} width="4/12">
             <Input placeholder="جستجوی مقاله" value={search} onChange={e => setSearch(e.target.value)} />

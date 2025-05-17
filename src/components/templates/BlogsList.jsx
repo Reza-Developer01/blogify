@@ -5,31 +5,37 @@ import { LuCalendar, LuTags, LuUserPen } from "react-icons/lu"
 import SearchAndFilter from "./SearchAndFilter"
 
 const BlogsList = () => {
+    const [allBlogs, setAllBlogs] = useState([])
     const [blogs, setBlogs] = useState([])
     const [isLoading, setIsLoading] = useState(true)
+
+    const [search, setSearch] = useState("")
 
     useEffect(() => {
         const fetchData = async () => {
             const { response, error } = await getBlogsList();
             if (response) {
-                setBlogs(response.data)
-                setIsLoading(false)
+                setAllBlogs(response.data);
+                setBlogs(response.data);
             }
-
-            if (error) {
-                console.log(error)
-                setIsLoading(false)
-            }
+            setIsLoading(false);
         }
 
         fetchData()
     }, [])
 
+    useEffect(() => {
+        const filtered = allBlogs.filter(blog =>
+            blog.title.includes(search)
+        )
+        setBlogs(filtered)
+    }, [search, allBlogs])
+
     return (
         <Box as="section">
             <Heading fontFamily="IranYekanX" mb="5">لیست مقالات</Heading>
 
-            <SearchAndFilter />
+            <SearchAndFilter search={search} setSearch={setSearch} />
 
             {
                 isLoading ? <Spinner size="md" /> : <Stack direction="row" gap="6" flexWrap="wrap">
@@ -46,7 +52,7 @@ export default BlogsList
 
 export const BlogCard = ({ blog }) => {
     return (
-        <Card.Root width="320px" flexGrow="1">
+        <Card.Root width="326px">
             <Card.Body gap="2">
                 <Card.Title>{blog.title}</Card.Title>
                 <Box display="flex" alignItems="center" gapX="2" fontSize="sm">
