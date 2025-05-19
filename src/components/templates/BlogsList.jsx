@@ -10,6 +10,7 @@ const BlogsList = () => {
     const [isLoading, setIsLoading] = useState(true)
 
     const [search, setSearch] = useState("")
+    const [sortOrder, setSortOrder] = useState("desc")
 
     useEffect(() => {
         const fetchData = async () => {
@@ -26,21 +27,30 @@ const BlogsList = () => {
 
     useEffect(() => {
         const filtered = allBlogs.filter(blog =>
-            blog.title.includes(search)
+            blog.title.toLowerCase().includes(search.toLowerCase())
         )
         setBlogs(filtered)
     }, [search, allBlogs])
+
+    const sortedBlogs = [...blogs].sort((a, b) => {
+        if (sortOrder === "asc") {
+            return new Date(a.createdAt) - new Date(b.createdAt);
+        } else {
+            return new Date(b.createdAt) - new Date(a.createdAt);
+        }
+    });
+
 
     return (
         <Box as="section">
             <Heading fontFamily="IranYekanX" mb="5">لیست مقالات</Heading>
 
-            <SearchAndFilter search={search} setSearch={setSearch} />
+            <SearchAndFilter search={search} setSearch={setSearch} sortOrder={sortOrder} setSortOrder={setSortOrder} />
 
             {
                 isLoading ? <Spinner size="md" /> : <Stack direction="row" gap="6" flexWrap="wrap">
                     {
-                        blogs.map(blog => <BlogCard key={blog.id} blog={blog} />)
+                        sortedBlogs.map(blog => <BlogCard key={blog.id} blog={blog} />)
                     }
                 </Stack>
             }
