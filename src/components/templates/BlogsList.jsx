@@ -4,6 +4,7 @@ import { useEffect, useState } from "react"
 import { LuCalendar, LuTags, LuUserPen } from "react-icons/lu"
 import SearchAndFilter from "./SearchAndFilter"
 import PaginationBlogs from "./PaginationBlogs"
+import { Link } from "react-router-dom"
 
 const BlogsList = () => {
     const [allBlogs, setAllBlogs] = useState([])
@@ -78,7 +79,7 @@ export const BlogCard = ({ blog }) => {
     return (
         <Card.Root width="326px">
             <Card.Body gap="2">
-                <Card.Title>{blog.title}</Card.Title>
+                <Card.Title as={Link} to={`/blogs/${blog.id}`}>{blog.title}</Card.Title>
                 <Box display="flex" alignItems="center" gapX="2" fontSize="sm">
                     <Text display="flex" alignItems="center" gapX="1">
                         <LuCalendar />

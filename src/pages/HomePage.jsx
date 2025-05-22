@@ -4,9 +4,7 @@ import MainLayout from "@/layouts/MainLayout"
 
 const HomePage = () => {
     return (
-        <MainLayout>
-            <BlogsList />
-        </MainLayout>
+        <BlogsList />
     )
 }
 

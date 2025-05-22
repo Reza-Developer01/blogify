@@ -1,13 +1,14 @@
 import Header from "@/components/modules/Header"
 import { Box, Container } from "@chakra-ui/react"
+import { Outlet } from "react-router-dom"
 
-const MainLayout = ({ children }) => {
+const MainLayout = () => {
     return (
         <>
             <Header />
             <Box as="main" marginY="10">
                 <Container>
-                    {children}
+                    <Outlet />
                 </Container>
             </Box>
         </>
