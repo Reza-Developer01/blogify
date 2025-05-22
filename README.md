@@ -39,3 +39,6 @@ This is a simple blog article listing web application built with **React** and *
 ```bash
 git clone https://github.com/your-username/blog-articles-app.git
 cd blog-articles-app
+npm install
+npm run dev
+Then open your browser and go to: http://localhost:5173
