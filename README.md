@@ -37,8 +37,8 @@ This is a simple blog article listing web application built with **React** and *
 ### 1. Clone the repository
 
 ```bash
-git clone https://github.com/your-username/blog-articles-app.git
-cd blog-articles-app
+git clone https://github.com/Reza-Developer01/blogify.git
+cd blogify
 npm install
 npm run dev
 Then open your browser and go to: http://localhost:5173
